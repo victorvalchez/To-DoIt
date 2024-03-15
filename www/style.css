@@ -1,0 +1,179 @@
+/* Inter Font. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap');
+
+
+/* App colors. */
+:root {
+	--salmon: #ff5c5c;
+	--blue: #6074f9;
+	--dark_blue: #363E62;
+	--grey: #383838;
+	--soft_grey: #e9e9e9;
+	--white: #ffffff;
+}
+
+
+* {
+	margin: 0rem;
+	padding: 0rem;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent; 
+}
+
+
+html {
+	font-family: 'Inter', sans-serif;
+	color: var(--grey);
+}
+
+
+body {
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 12% auto 12%;
+	height: 100%;
+	overflow: hidden;
+}
+
+
+#fab-add {
+	width: 3.5rem;
+	height: 3.5rem;
+	border-radius: 50%;
+	background-color: var(--salmon);
+	color: var(--white);
+	border: none;
+	font-size: 1.7em;
+}
+
+#fab-add:active {
+	background-color: var(--white);
+	color: var(--salmon);
+	cursor: pointer;
+}
+
+
+#task-name {
+	flex-grow: 1;
+	height: 100%;
+	margin-right: 15px;
+	margin-bottom: 0;
+	border: none;
+	border-radius: 10px;
+	padding: 0 15px;
+}
+
+
+[id^="task"] {
+	background-color: var(--white);
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+	margin-bottom: 15px;
+	padding: 1.5rem;
+	overflow-wrap: break-word;
+	border: 0.1rem solid transparent;
+	user-select: none;
+}
+
+[id^="task"]:hover {
+	cursor: pointer;
+}
+
+[id^="task"]:active {
+	background-color: var(--white);
+	color: var(--grey);
+	border: 0.1rem solid var(--salmon);
+}
+
+
+.done {
+	color: var(--white);
+	text-decoration: line-through;
+	text-decoration-color: var(--dark_blue);
+	text-decoration-thickness: 0.1rem;
+	background-color:  var(--salmon);
+}
+
+
+#header {
+	grid-row: 1/2;
+	padding: 5%;
+	background-color: var(--dark_blue);
+	color: var(--white);
+	display: hidden;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 0.4rem solid var(--white);
+	z-index: 99;
+}
+
+#header h1 {
+	font-size: 2.2em;
+	font-weight: 700;
+}
+
+
+#content {
+	grid-row: 2/3;
+	padding: 5%;
+	overflow-y: scroll;
+	overflow-x : hidden;
+}
+
+#content h1 {
+	font-size: 2em;
+	font-weight: 700;
+	margin-bottom: 1.3rem;
+	margin-top: 0.5rem;
+}
+
+
+#add-task-container {
+	grid-row: 3/4;
+	background-color: var(--dark_blue);
+	padding: 1rem;
+	display: hidden;  
+	align-items: center;
+	border-top: 0.4rem solid var(--white);
+	z-index: 99;
+}
+
+
+#initial-screen {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--dark_blue);
+	color: var(--white);
+	z-index: 999;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 50px;
+}
+
+
+#initial-screen h1 {
+	font-size: 3em;
+	font-weight: 700;
+}
+
+
+#start-button {
+	background-color: var(--white);
+	color: var(--dark_blue);
+	border: none;
+	border-radius: 10px;
+	padding: 1rem;
+	font-size: 1.5em;
+	font-weight: 700;
+}
+
+#start-button:active {
+	background-color: var(--salmon);
+	color: var(--white);
+	cursor: pointer;
+}

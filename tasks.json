@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "Learn JavaScript",
+        "done": false
+    },
+    {
+        "id": 2,
+        "title": "Finish the exercises",
+        "done": false
+    },
+    {
+        "id": 3,
+        "title": "Do 100 squats",
+        "done": false
+    },
+    {
+        "id": 4,
+        "title": "Go to the supermarket",
+        "done": true
+    },
+    {
+        "id": 5,
+        "title": "Eat something healthy",
+        "done": true
+    },
+    {
+        "id": 6,
+        "title": "Exercise for 30 minutes",
+        "done": false
+    }
+]
