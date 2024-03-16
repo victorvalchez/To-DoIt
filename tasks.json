@@ -1,22 +1,17 @@
 [
-	{
-		"id": 1,
-		"title": "Estudiar JavaScript",
-		"done": false
-	},
-	{
-		"id": 2,
-		"title": "Terminar Lab 2 de Ubicuos",
-		"done": true
-	},
-	{
-		"id": 3,
-		"title": "Quedar con Javi",
-		"done": false
-	},
-	{
-		"id": 4,
-		"title": "Hacer portfolio",
-		"done": false
-	}
+    {
+        "id": 1,
+        "title": "Estudiar JavaScript",
+        "done": false
+    },
+    {
+        "id": 2,
+        "title": "Terminar Lab 2 de Ubicuos",
+        "done": true
+    },
+    {
+        "id": 3,
+        "title": "Quedar con Javi",
+        "done": false
+    }
 ]
