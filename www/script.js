@@ -1,6 +1,7 @@
+// Lista de tareas
 let taskList = [];
 
-// Function that loads the tasks from the tasks.json file.
+// Función que carga las tareas desde el archivo tasks.json.
 const takeTasks = async () => {
 	try {
 		console.log(new URL("../tasks.json", window.location.href).href);
@@ -12,13 +13,13 @@ const takeTasks = async () => {
 	}
 };
 
-// Function that loads the tasks in the HTML.
+// Función que carga las tareas en el HTML.
 const loadTasks = async () => {
 	taskList = await takeTasks();
 
-	const taskListElem = document.querySelector("#container"); // The container where the tasks are going to be added.
+	const taskListElem = document.querySelector("#container"); // El contenedor donde se van a agregar las tareas.
 
-	// We remove the tasks that are already in the container.
+	// Removemos las tareas que ya están en el contenedor.
 	while (taskListElem.firstChild) {
 		taskListElem.removeChild(taskListElem.firstChild);
 	}
@@ -37,17 +38,17 @@ const loadTasks = async () => {
 		i++;
 	});
 
-	// The rest of the events are loaded.
-	loadRest();
+	// Se cargan el resto de los eventos.
+	loadOthers();
 };
 
-// Function that saves the tasks in the tasks.json file using POST.
+// Función que guarda las tareas en el archivo tasks.json usando POST.
 const saveTasks = async () => {
 	navigator.vibrate(30);
 
 	try {
 		const url = `${window.location.origin}/tasklist/update`;
-		console.log(`Fetching from: ${url}`);
+		console.log(`Obteniendo desde: ${url}`);
 		const response = await fetch("/tasklist/update", {
 			method: "POST",
 			headers: {
@@ -57,7 +58,7 @@ const saveTasks = async () => {
 		});
 
 		if (!response.ok) {
-			throw new Error(`HTTP error! status: ${response.status}`);
+			throw new Error(`¡Error HTTP! estado: ${response.status}`);
 		} else {
 			const responseBody = await response.text();
 			console.log(responseBody);
@@ -69,7 +70,7 @@ const saveTasks = async () => {
 	}
 };
 
-// Function that adds a task to the list.
+// Función que añade una tarea a la lista.
 const add = () => {
 	const taskName = document.querySelector("#task-name").value;
 
@@ -81,7 +82,7 @@ const add = () => {
 	}
 };
 
-// Function that removes a task from the list.
+// Función que elimina una tarea de la lista.
 const remove = (taskElem) => {
 	const taskId = parseInt(taskElem.id.replace("task", ""));
 
@@ -96,7 +97,7 @@ const remove = (taskElem) => {
 	saveTasks();
 };
 
-// Function that marks a task as done or not done.
+// Función que marca una tarea como hecha o no hecha.
 const toggleDone = (task) => {
 	taskList.forEach((t) => {
 		if (task.id.includes("task" + t.id)) {
@@ -107,16 +108,16 @@ const toggleDone = (task) => {
 	saveTasks();
 };
 
-// Function that loads the rest of the events.
-const loadRest = () => {
+// Función que carga el resto de los eventos.
+const loadOthers = () => {
 	let tasks = document
 		.getElementById("container")
 		.querySelectorAll('[id^="task"]');
 
-	// Button to add a task.
+	// Botón para añadir una tarea.
 	const addButton = document.querySelector("#fab-add");
 
-	// The task is added when the + button is pressed or clicked and when enter is pressed.
+	// La tarea se añade cuando se presiona o hace clic en el botón + o cuando se presiona Enter.
 	addButton.addEventListener("touchend", add);
 	addButton.addEventListener("click", add);
 	document.querySelector("#task-name").addEventListener("keyup", (event) => {
@@ -126,11 +127,11 @@ const loadRest = () => {
 		}
 	});
 
-	// The events are added to each task.
+	// Se añaden los eventos a cada tarea.
 	tasks.forEach((task) => {
 		let timer;
 
-		// Starts the long press event.
+		// Inicia el evento de presión larga.
 		task.addEventListener("touchstart", () => {
 			navigator.vibrate(15);
 			timer = setTimeout(() => {
@@ -138,7 +139,7 @@ const loadRest = () => {
 			}, 2000);
 		});
 
-		// Ends the long press event.
+		// Finaliza el evento de presión larga.
 		task.addEventListener("touchend", () => {
 			clearTimeout(timer);
 		});
@@ -151,7 +152,7 @@ const loadRest = () => {
 		const TIME_THRESHOLD = 300,
 			SPACE_THRESHOLD = 200;
 
-		// Starts the swipe event.
+		// Inicia el evento de deslizamiento a la derecha.
 		task.addEventListener(
 			"touchstart",
 			(event) => {
@@ -162,7 +163,7 @@ const loadRest = () => {
 			{ passive: false },
 		);
 
-		// Ends the swipe event.
+		// Comprobamos mientras que se deslice.
 		task.addEventListener(
 			"touchmove",
 			(event) => {
@@ -178,7 +179,7 @@ const loadRest = () => {
 			{ passive: false },
 		);
 
-		// Ends the swipe event.
+		// Finaliza el evento de deslizamiento.
 		task.addEventListener("touchend", (event) => {
 			endTime = event.timeStamp;
 			touchEndX = event.changedTouches[0].clientX;
@@ -209,16 +210,16 @@ const loadRest = () => {
 	});
 };
 
-// We load the tasks when the start button is pressed.
+// Cargamos las tareas cuando se presiona el botón de inicio.
 const start_button = document.querySelector("#start-button");
 
-// We hide the initial screen and show the rest of the elements.
+// Ocultamos la pantalla inicial al pulsar 'Start' y mostramos el resto de los elementos.
 start_button.addEventListener("click", () => {
 	document.querySelector("#initial-screen").style.display = "none";
 	document.querySelector("#header").style.display = "flex";
 	document.querySelector("#content").style.display = "block";
 	document.querySelector("#add-task-container").style.display = "flex";
 
-	// We load the tasks and the rest of the events.
+	// Cargamos las tareas y el resto de los eventos.
 	loadTasks();
 });
