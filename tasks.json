@@ -11,7 +11,7 @@
     },
     {
         "id": 3,
-        "title": "Quedar con Javi",
-        "done": false
+        "title": "Ir a una procesión",
+        "done": true
     }
 ]
