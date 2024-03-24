@@ -1,17 +1,12 @@
 [
-	{
-		"id": 1,
-		"title": "Estudiar JavaScript",
-		"done": true
-	},
-	{
-		"id": 2,
-		"title": "Terminar Lab 2 de Ubicuos",
-		"done": true
-	},
-	{
-		"id": 3,
-		"title": "Ir a una procesión",
-		"done": false
-	}
+    {
+        "id": 1,
+        "title": "Estudiar JavaScript",
+        "done": true
+    },
+    {
+        "id": 2,
+        "title": "Terminar Lab 2 de Ubicuos",
+        "done": false
+    }
 ]

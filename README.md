@@ -10,6 +10,7 @@ Se recomienda clonar este proyecto en entornos que permitan gestionar _POST requ
 2. Abrir `index.html` en tu navegador.
 3. Mandar la web a tu dispositivo móvil a través de la depuración móvil.
 
+Ya te comenté en clase el problema que había, no he conseguido solucionarlo así que de momento solo funciona con `replit`.
 
 ## Authors
 
